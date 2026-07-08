@@ -29,3 +29,52 @@ export const createDog = async (req, res) => {
     });
   }
 };
+
+export const getDogById = async (req, res) => {
+  try {
+    const dog = await Dog.findById(req.params.id);
+
+    res.status(200).json(dog);
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Errore nel recupero del cane",
+      error: error.message,
+    });
+  }
+};
+
+export const updateDog = async (req, res) => {
+  try {
+    const updatedDog = await Dog.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+
+    res.status(200).json(updatedDog);
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Errore nell'update del cane",
+      error: error.message,
+    });
+  }
+};
+
+export const deleteDog = async (req, res) => {
+  try {
+    const deletedDog = await Dog.findByIdAndDelete(req.params.id);
+
+    res.status(200).json({
+      message: "Cane eliminato con successo",
+      deletedDog,
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Errore nell'eliminazione del cane",
+      error: error.message,
+    });
+  }
+};
