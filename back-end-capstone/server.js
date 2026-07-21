@@ -5,6 +5,7 @@ import {connect} from "./DB.js";
 import dogRoutes from "./routes/dogs.js";
 import commentRoutes from "./routes/comments.js";
 import authRoutes from "./routes/auth.js";
+import uploadRoutes from "./routes/upload.js";
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/dogs", dogRoutes);
 app.use("/comments", commentRoutes);
+app.use("/upload", uploadRoutes);
 app.use("/auth", authRoutes);
 
 app.get("/", (req, res) => {

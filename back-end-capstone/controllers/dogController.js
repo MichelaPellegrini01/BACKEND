@@ -18,9 +18,11 @@ export const createDog = async (req, res) => {
     try {
     const newDog = new Dog(req.body);
 
-    await newDog.save();
+    const savedDog = await newDog.save();
 
-    res.status(201).json(newDog);
+console.log("SALVATO NEL DB:", savedDog);
+
+res.status(201).json(savedDog);
 
   } catch (error) {
     res.status(500).json({
