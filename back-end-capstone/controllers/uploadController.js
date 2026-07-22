@@ -24,7 +24,7 @@ export const uploadImage = async (req, res) => {
         });
       }
     );
-    console.log("Sto caricando su Cloudinary...");
+    
 
     streamifier.createReadStream(req.file.buffer).pipe(stream);
 

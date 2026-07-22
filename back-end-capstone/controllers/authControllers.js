@@ -39,7 +39,7 @@ export async function login(req, res) {
     const user = await User.findOne({ email });
 
     console.log("Utente trovato:", user);
-console.log("isAdmin:", user.isAdmin);
+    console.log("isAdmin:", user.isAdmin);
 
     if (!user) {
       return res.status(400).json({
@@ -59,7 +59,7 @@ console.log("isAdmin:", user.isAdmin);
       {
         id: user._id,
         name: user.name,
-         isAdmin: user.isAdmin,
+        isAdmin: user.isAdmin,
       },
       process.env.JWT_SECRET,
       {
@@ -68,14 +68,14 @@ console.log("isAdmin:", user.isAdmin);
     );
 
     console.log("Risposta inviata:", {
-  token,
-  user: {
-    id: user._id,
-    name: user.name,
-    email: user.email,
-    isAdmin: user.isAdmin,
-  },
-});
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+      },
+    });
 
     res.status(200).json({
       token,
@@ -83,7 +83,7 @@ console.log("isAdmin:", user.isAdmin);
         id: user._id,
         name: user.name,
         email: user.email,
-         isAdmin: user.isAdmin,
+        isAdmin: user.isAdmin,
       },
     });
   } catch (error) {

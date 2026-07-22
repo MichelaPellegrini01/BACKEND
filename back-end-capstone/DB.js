@@ -7,11 +7,11 @@ export async function connect() {
 
     try {
         await mongoose.connect(process.env.MONGODB_URI)
-        console.log("connesso correttamente DB")
+        console.log("Connesso correttamente DB")
         console.log("Database connesso:", mongoose.connection.name);
     }
     catch (error){
-console.log("errore nella connessione DB", error)
+console.log("Errore nella connessione DB", error)
     }
 
 };

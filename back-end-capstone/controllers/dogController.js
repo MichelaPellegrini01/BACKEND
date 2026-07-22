@@ -20,8 +20,6 @@ export const createDog = async (req, res) => {
 
     const savedDog = await newDog.save();
 
-console.log("SALVATO NEL DB:", savedDog);
-
 res.status(201).json(savedDog);
 
   } catch (error) {
